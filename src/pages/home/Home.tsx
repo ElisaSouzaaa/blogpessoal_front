@@ -1,44 +1,36 @@
-import React from 'react'
-
 function Home() {
-  return (
-    <>
-    <div style={{
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center"
-    }}>
-        <div>
+    return (
+        <>
+            <div className="bg-bora-purple flex justify-center">
+                <div className="container grid grid-cols-2 text-white">
+                    <div className="flex flex-col gap-4 items-center justify-center py-4">
 
-            <div style={{
-                backgroundColor: "#90CAF9",
-                 width: "80vw",
-                 display: "flex",
-                 flexDirection: "column",
-                 alignItems: "center"
-            }}>
-                <h2>BEM VINDES AO BLOG PESSOAL</h2>
-                <p>Compartilhe sua versão do mundo!</p>
-            </div>
+                        <h2 className="text-5xl font-bold">
+                            Seja Bem-vinde!
+                        </h2>
 
-            <div style={{
-                backgroundColor: "#FFFFFF",
-                 width: "80vw",
-                 marginTop: "6rem",
-                 display: "flex",
-                 flexDirection: "column",
-                 alignItems: "center"
-            }}>
-                <img 
-                    src="src/assets/img/microsites.gif"
-                    alt="Imagem da Página Home" 
-                    width="400px"
-                />
+                        <p className="text-xl">
+                            Expresse aqui seus pensamentos e opniões
+                        </p>
+
+                        <div className="flex justify-around gap-4">
+                            <div className="rounded text-while border-white border-solid border-2 py-2 px-4">
+                                Nova Postagem
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex justify-center">
+                        <img
+                            src="https://i.imgur.com/fyfri1v.png"
+                            alt="Iagem Página Home"
+                            className="w-2/3"
+                        />
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</>
-  )
+        </>
+    )
 }
 
 export default Home

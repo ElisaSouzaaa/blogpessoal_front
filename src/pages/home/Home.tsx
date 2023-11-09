@@ -1,4 +1,5 @@
 function Home() {
+
     return (
         <>
             <div className="bg-bora-purple flex justify-center">

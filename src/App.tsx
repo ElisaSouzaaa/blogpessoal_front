@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
@@ -9,8 +10,9 @@ import Cadastro from './pages/cadastro/Cadastro';
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
+      <AuthProvider>
+        <BrowserRouter>
+          <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
               <Route path="/" element={<Login />} />
@@ -18,9 +20,10 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/cadastro" element={<Cadastro />} />
             </Routes>
-          </div>  
-        <Footer />
-      </BrowserRouter>
+          </div>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 }

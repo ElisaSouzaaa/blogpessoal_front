@@ -52,7 +52,7 @@ function FormularioTema() {
         })
     }
 
-    async function gerarNovoTema(e: ChangeEvent<HTMLInputElement>) {
+    async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
 

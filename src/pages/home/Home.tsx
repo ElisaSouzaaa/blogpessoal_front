@@ -1,3 +1,6 @@
+import ListaPostagens from "../../components/postagens/listaPostagens/ListaPostagens"
+import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem"
+
 function Home() {
 
     return (
@@ -15,8 +18,8 @@ function Home() {
                         </p>
 
                         <div className="flex justify-around gap-4">
-                            <div className="rounded text-while border-white border-solid border-2 py-2 px-4">
-                                Nova Postagem
+                            <div className="rounded text-while py-2 px-4">
+                                <ModalPostagem />
                             </div>
                         </div>
                     </div>
@@ -30,6 +33,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <ListaPostagens />
         </>
     )
 }

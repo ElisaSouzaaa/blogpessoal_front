@@ -7,6 +7,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 
 function FormularioPostagem() {
@@ -50,7 +51,7 @@ function FormularioPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            toastAlerta('Você precisa estar logado', "erro")
             navigate('/');
         }
     }, [token])
@@ -95,14 +96,14 @@ function FormularioPostagem() {
                     },
                 });
 
-                alert('Postagem atualizada com sucesso')
+                toastAlerta('Postagem atualizada com sucesso', "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "erro")
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem')
+                    toastAlerta('Erro ao atualizar a Postagem', "erro")
                 }
             }
 
@@ -114,14 +115,14 @@ function FormularioPostagem() {
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso');
+                toastAlerta('Postagem cadastrada com sucesso', "sucesso");
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                    alert('O token expirou, favor logar novamente')
+                    toastAlerta('O token expirou, favor logar novamente', "erro")
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem');
+                    toastAlerta('Erro ao cadastrar a Postagem', "erro");
                 }
             }
         }
@@ -181,8 +182,8 @@ function FormularioPostagem() {
                 <button
                     type='submit'
                     disabled={carregandoTema}
-                    className='rounded disabled:bg-slate-200 bg-indigo-400 
-                            hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'
+                    className='rounded text-slate-100 bg-indigo-400 
+                    hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center'
                 >
                     {isLoading ?
 

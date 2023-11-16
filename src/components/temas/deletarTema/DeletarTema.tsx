@@ -4,6 +4,7 @@ import { buscar, deletar } from "../../../services/Service"
 import { AuthContext } from "../../../contexts/AuthContext"
 import Tema from "../../../models/Tema"
 import { RotatingLines } from "react-loader-spinner"
+import { toastAlerta } from "../../../utils/toastAlerta"
 
 function DeletarTema() {
 
@@ -25,7 +26,7 @@ function DeletarTema() {
             })
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', "erro")
                 handleLogout()
             }
         }
@@ -33,7 +34,7 @@ function DeletarTema() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', "erro")
             navigate('/login')
         }
     }, [token])
@@ -54,9 +55,9 @@ function DeletarTema() {
                 }
             })
 
-            alert("Tema apagado com sucesso!")
+            toastAlerta("Tema apagado com sucesso!", "sucesso")
         } catch (error) {
-            alert("Erro ao apagar o Tema!")
+            toastAlerta("Erro ao apagar o Tema!", "erro")
         }
 
         setIsLoading(false)
@@ -95,11 +96,11 @@ function DeletarTema() {
                     <button className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex -items-center justify-center" onClick={deletarTema}>
                         {isLoading ?
                             <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
+                            strokeColor='white'
+                            strokeWidth='5'
+                            animationDuration='0.75'
+                            width='24'
+                            visible={true}
                             /> :
                             <span>Sim</span>
                     }

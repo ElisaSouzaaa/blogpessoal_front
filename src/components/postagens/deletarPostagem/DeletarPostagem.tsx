@@ -96,10 +96,20 @@ function DeletarPostagem() {
                         className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>
                         Não
                     </button>
+
                     <button
                         className='w-full text-slate-100 bg-indigo-400 
                         hover:bg-indigo-600 flex items-center justify-center' onClick={deletarPostagem}>
-                        Sim
+                        {isLoading ?
+                            <RotatingLines
+                                strokeColor="white"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="24"
+                                visible={true}
+                            /> :
+                            <span>Sim</span>
+                        }
                     </button>
                 </div>
             </div>
